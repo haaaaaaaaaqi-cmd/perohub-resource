@@ -18234,6 +18234,7 @@ function attachItemEvents() {
 
   // --- Marquee (drag-to-select) Selection ---
   let isMarqueeActive = false;
+  let marqueeJustEnded = false;
   let marqueeStartX = 0;
   let marqueeStartY = 0;
   let marqueeEl = null;
@@ -18339,6 +18340,11 @@ function attachItemEvents() {
     }
     
     marqueeInitialSelection.clear();
+    
+    // Mark that marquee just ended, so the next click event won't clear selection
+    // (click fires after mouseup, and would otherwise clear the marquee selection)
+    marqueeJustEnded = true;
+    setTimeout(() => { marqueeJustEnded = false; }, 0);
   });
   
   // Click on empty area to deselect
@@ -18356,8 +18362,8 @@ function attachItemEvents() {
         e.target.closest('.context-menu') ||
         e.target.closest('.table-head') ||
         e.target.closest('.toolbar-filter-tag')) return;
-    // Don't deselect after marquee
-    if (isMarqueeActive) return;
+    // Don't deselect after marquee selection
+    if (isMarqueeActive || marqueeJustEnded) return;
     
     // Clear selection when clicking on any empty area in the viewport
     if (e.target.closest('#contentViewport')) {
