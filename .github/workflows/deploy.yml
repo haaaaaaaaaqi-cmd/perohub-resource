@@ -20,13 +20,43 @@ jobs:
           /
             Content-Type: text/html; charset=UTF-8
           EOF
+          cd dist && zip -r ../deploy.zip .
 
       - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v3
-        with:
-          publish-dir: ./dist
-          production-deploy: true
-          deploy-message: "Deploy from GitHub Actions"
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          RESPONSE=$(curl -s -X POST "https://api.netlify.com/api/v1/sites/${{ secrets.NETLIFY_SITE_ID }}/deploys" \
+            -H "Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}" \
+            -H "Content-Type: application/zip" \
+            --data-binary @deploy.zip)
+          
+          DEPLOY_ID=$(echo "$RESPONSE" | python3 -c "import sys,json; print(json.load(sys.stdin).get('id',''))")
+          if [ -z "$DEPLOY_ID" ]; then
+            echo "❌ Deploy failed!"
+            echo "$RESPONSE"
+            exit 1
+          fi
+          
+          echo "Deploy ID: $DEPLOY_ID"
+          echo "Waiting for deploy to complete..."
+          
+          for i in $(seq 1 30); do
+            sleep 2
+            STATE=$(curl -s "https://api.netlify.com/api/v1/sites/${{ secrets.NETLIFY_SITE_ID }}/deploys/$DEPLOY_ID" \
+              -H "Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}" \
+              | python3 -c "import sys,json; print(json.load(sys.stdin).get('state',''))")
+            
+            if [ "$STATE" = "ready" ]; then
+              echo ""
+              echo "🎉 Deploy successful!"
+              echo "https://perohub.netlify.app"
+              exit 0
+            elif [ "$STATE" = "error" ] || [ "$STATE" = "failed" ]; then
+              echo "❌ Deploy failed!"
+              exit 1
+            fi
+            echo -n "."
+          done
+          
+          echo ""
+          echo "⚠️  Deploy timeout"
+          exit 1
