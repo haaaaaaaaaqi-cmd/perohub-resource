@@ -18242,22 +18242,22 @@ function attachItemEvents() {
   viewport.addEventListener('mousedown', (e) => {
     // Only start marquee on left click on empty area of view container
     if (e.button !== 0) return;
-    if (e.target.closest(itemSelector) || e.target.closest('.btn') || e.target.closest('.section-header') || e.target.closest('input') || e.target.closest('a')) return;
+    // Don't start marquee when clicking on items, buttons, inputs, links, section headers, resizers, etc.
+    if (e.target.closest(itemSelector) || 
+        e.target.closest('.btn') || 
+        e.target.closest('.section-header') || 
+        e.target.closest('input') || 
+        e.target.closest('a') ||
+        e.target.closest('.resizer') ||
+        e.target.closest('.review-h-resizer') ||
+        e.target.closest('.review-sidebar-resizer') ||
+        e.target.closest('.dropdown-menu') ||
+        e.target.closest('.context-menu') ||
+        e.target.closest('.table-head') ||
+        e.target.closest('.toolbar-filter-tag')) return;
     
-    // Check if clicked on a view container (empty space)
-    const isEmptyArea = e.target.id === 'contentViewport' || 
-      e.target.classList.contains('grid-view') ||
-      e.target.classList.contains('masonry-view') ||
-      e.target.classList.contains('video-view') ||
-      e.target.classList.contains('audio-view') ||
-      e.target.classList.contains('music-view') ||
-      e.target.classList.contains('single-column-view') ||
-      e.target.classList.contains('table-view') ||
-      e.target.classList.contains('view-sections') ||
-      e.target.classList.contains('view-section') ||
-      e.target.classList.contains('section-content');
-    
-    if (!isEmptyArea) return;
+    // Start marquee on any empty area inside the viewport (works for all views)
+    if (!e.target.closest('#contentViewport')) return;
     
     e.preventDefault();
     isMarqueeActive = true;
@@ -18343,12 +18343,24 @@ function attachItemEvents() {
   
   // Click on empty area to deselect
   viewport.addEventListener('click', (e) => {
-    // Don't deselect when clicking on section headers (collapse/expand action)
-    if (e.target.closest('.section-header')) return;
+    // Don't deselect when clicking on interactive elements
+    if (e.target.closest('.section-header') ||
+        e.target.closest(itemSelector) ||
+        e.target.closest('.btn') ||
+        e.target.closest('input') ||
+        e.target.closest('a') ||
+        e.target.closest('.resizer') ||
+        e.target.closest('.review-h-resizer') ||
+        e.target.closest('.review-sidebar-resizer') ||
+        e.target.closest('.dropdown-menu') ||
+        e.target.closest('.context-menu') ||
+        e.target.closest('.table-head') ||
+        e.target.closest('.toolbar-filter-tag')) return;
     // Don't deselect after marquee
     if (isMarqueeActive) return;
     
-    if (e.target.id === 'contentViewport' || e.target.id === 'contentArea' || e.target.classList.contains('grid-view') || e.target.classList.contains('masonry-view') || e.target.classList.contains('video-view') || e.target.classList.contains('audio-view') || e.target.classList.contains('music-view') || e.target.classList.contains('table-view') || e.target.classList.contains('table-grid') || e.target.classList.contains('task-view') || e.target.classList.contains('task-toolbar') || e.target.classList.contains('task-view-hint') || e.target.classList.contains('single-column-view') || e.target.classList.contains('view-sections') || e.target.classList.contains('view-section') || e.target.classList.contains('section-content')) {
+    // Clear selection when clicking on any empty area in the viewport
+    if (e.target.closest('#contentViewport')) {
       selectedItems.clear();
       updateSelectionUI();
       updateDetailPanel();
