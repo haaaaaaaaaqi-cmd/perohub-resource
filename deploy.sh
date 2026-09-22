@@ -7,7 +7,7 @@
 set -e
 
 # 配置
-NETLIFY_TOKEN="nfp_Zi9PymCyoujUirSyTVyhqKDPDzCQmNxge593"
+NETLIFY_TOKEN="nfp_PNGboeHuudmziBbJCX4Tvb23UidoPW5847e2"
 SITE_ID="9460b832-2728-4a18-af3d-71bceac72b3a"
 SITE_URL="https://perohub.netlify.app"
 SOURCE_FILE="/workspace/perohub.html"
