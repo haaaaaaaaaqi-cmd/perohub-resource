@@ -9,9 +9,9 @@ set -e
 # 配置
 # 请设置环境变量 VERCEL_TOKEN，或在此处填入你的 Vercel Token
 VERCEL_TOKEN="${VERCEL_TOKEN}"
-PROJECT_ID="prj_28s5FeAyVjOPf01sNU8EcGPSPt2N"
+PROJECT_ID="prj_C5tbVYNrU840Kw9XEYd55Bz1AgJM"
 ORG_ID="team_sQE3owTSTlD0AwZCKIYRnyNQ"
-SITE_URL="https://perohub-perohub1.vercel.app"
+SITE_URL="https://perohub-resource.vercel.app"
 SOURCE_FILE="${SOURCE_FILE:-$(dirname "$0")/perohub.html}"
 WORK_DIR="$(cd "$(dirname "$0")" && pwd)"
 
