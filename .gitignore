@@ -15,3 +15,9 @@ deploy/deploy.zip
 .DS_Store
 Thumbs.db
 deploy/
+.vercel
+
+# Vercel 部署生成文件
+index.html
+vercel.json
+.vercel-deploy/
