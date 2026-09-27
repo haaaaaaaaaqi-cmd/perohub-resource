@@ -12261,13 +12261,14 @@ let workspaceData = {
     'ws-cosmic': {
       id: 'ws-cosmic',
       name: '宇宙幻想',
-      taskIds: ['task-cosmic-1', 'task-cosmic-2'],
+      icon: '🚀',
+      taskIds: ['task-cosmic-1', 'task-cosmic-2', 'task-cosmic-3'],
       canvas: {
         collapsed: true,
         widgets: [
-          { id: 'w-1', type: 'stat', title: '任务总数', value: '5', icon: '📋', color: 'blue' },
-          { id: 'w-2', type: 'stat', title: '进行中', value: '3', icon: '⚡', color: 'cyan' },
-          { id: 'w-4', type: 'progress', title: '项目进度', value: 40, color: 'cyan' },
+          { id: 'w-1', type: 'stat', title: '任务总数', value: '3', icon: '📋', color: 'blue' },
+          { id: 'w-2', type: 'stat', title: '进行中', value: '2', icon: '⚡', color: 'cyan' },
+          { id: 'w-4', type: 'progress', title: '项目进度', value: 60, color: 'cyan' },
           { id: 'w-5', type: 'note', title: '项目说明', content: '本周重点推进星空场景设计，完成飞船3D模型初稿。周五前提交评审。', color: 'yellow' },
           { id: 'w-6', type: 'text', title: '负责人', content: '张三 · 李四\n设计组 · 模型组', icon: '👥' }
         ]
@@ -12276,20 +12277,123 @@ let workspaceData = {
     'ws-daily': {
       id: 'ws-daily',
       name: '暮城日常',
-      taskIds: [],
-      canvas: { collapsed: true, widgets: [] }
+      icon: '📝',
+      taskIds: ['task-daily-1', 'task-daily-2'],
+      canvas: {
+        collapsed: true,
+        widgets: [
+          { id: 'w-d1', type: 'stat', title: '任务总数', value: '2', icon: '📋', color: 'green' },
+          { id: 'w-d2', type: 'stat', title: '待办', value: '1', icon: '⏳', color: 'orange' }
+        ]
+      }
     },
     'ws-strange': {
       id: 'ws-strange',
       name: '暮城异闻',
-      taskIds: [],
-      canvas: { collapsed: true, widgets: [] }
+      icon: '💡',
+      taskIds: ['task-strange-1', 'task-strange-2', 'task-strange-3'],
+      canvas: {
+        collapsed: true,
+        widgets: [
+          { id: 'w-s1', type: 'stat', title: '任务总数', value: '3', icon: '📋', color: 'purple' },
+          { id: 'w-s2', type: 'progress', title: '完成度', value: 33, color: 'purple' }
+        ]
+      }
     },
     'ws-basic': {
       id: 'ws-basic',
       name: '基础系统',
-      taskIds: [],
-      canvas: { collapsed: true, widgets: [] }
+      icon: '🔧',
+      taskIds: ['task-basic-1', 'task-basic-2', 'task-basic-3', 'task-basic-4'],
+      canvas: {
+        collapsed: true,
+        widgets: [
+          { id: 'w-b1', type: 'stat', title: '任务总数', value: '4', icon: '📋', color: 'blue' },
+          { id: 'w-b2', type: 'stat', title: '进行中', value: '2', icon: '⚡', color: 'cyan' },
+          { id: 'w-b3', type: 'progress', title: '系统进度', value: 50, color: 'blue' }
+        ]
+      }
+    },
+    'ws-character': {
+      id: 'ws-character',
+      name: '角色设计',
+      icon: '🎨',
+      taskIds: ['task-char-1', 'task-char-2', 'task-char-3'],
+      canvas: {
+        collapsed: true,
+        widgets: [
+          { id: 'w-ch1', type: 'stat', title: '任务总数', value: '3', icon: '📋', color: 'pink' },
+          { id: 'w-ch2', type: 'stat', title: '高优先级', value: '1', icon: '🔥', color: 'red' },
+          { id: 'w-ch3', type: 'note', title: '设计规范', content: '角色需符合世界观设定，三视图比例统一，风格保持一致。', color: 'pink' }
+        ]
+      }
+    },
+    'ws-scene': {
+      id: 'ws-scene',
+      name: '场景构建',
+      icon: '📊',
+      taskIds: ['task-scene-1', 'task-scene-2'],
+      canvas: {
+        collapsed: true,
+        widgets: [
+          { id: 'w-sc1', type: 'stat', title: '任务总数', value: '2', icon: '📋', color: 'teal' },
+          { id: 'w-sc2', type: 'progress', title: '构建进度', value: 45, color: 'teal' }
+        ]
+      }
+    },
+    'ws-ui': {
+      id: 'ws-ui',
+      name: 'UI 界面',
+      icon: '🎯',
+      taskIds: ['task-ui-1', 'task-ui-2', 'task-ui-3'],
+      canvas: {
+        collapsed: true,
+        widgets: [
+          { id: 'w-u1', type: 'stat', title: '任务总数', value: '3', icon: '📋', color: 'indigo' },
+          { id: 'w-u2', type: 'stat', title: '进行中', value: '1', icon: '⚡', color: 'cyan' },
+          { id: 'w-u3', type: 'text', title: '设计原则', content: '简洁 · 一致 · 反馈', icon: '✨' }
+        ]
+      }
+    },
+    'ws-animation': {
+      id: 'ws-animation',
+      name: '动画特效',
+      icon: '🎬',
+      taskIds: ['task-anim-1', 'task-anim-2'],
+      canvas: {
+        collapsed: true,
+        widgets: [
+          { id: 'w-a1', type: 'stat', title: '任务总数', value: '2', icon: '📋', color: 'orange' },
+          { id: 'w-a2', type: 'progress', title: '动画进度', value: 25, color: 'orange' }
+        ]
+      }
+    },
+    'ws-audio': {
+      id: 'ws-audio',
+      name: '音效配乐',
+      icon: '🎵',
+      taskIds: ['task-audio-1', 'task-audio-2', 'task-audio-3'],
+      canvas: {
+        collapsed: true,
+        widgets: [
+          { id: 'w-au1', type: 'stat', title: '任务总数', value: '3', icon: '📋', color: 'violet' },
+          { id: 'w-au2', type: 'note', title: '配乐要求', content: '主题曲需体现世界观氛围，背景音乐循环无缝衔接。', color: 'violet' }
+        ]
+      }
+    },
+    'ws-qa': {
+      id: 'ws-qa',
+      name: '测试验收',
+      icon: '✅',
+      taskIds: ['task-qa-1', 'task-qa-2', 'task-qa-3', 'task-qa-4'],
+      canvas: {
+        collapsed: true,
+        widgets: [
+          { id: 'w-q1', type: 'stat', title: '任务总数', value: '4', icon: '📋', color: 'green' },
+          { id: 'w-q2', type: 'stat', title: '待办', value: '3', icon: '⏳', color: 'orange' },
+          { id: 'w-q3', type: 'progress', title: '验收进度', value: 25, color: 'green' }
+        ]
+      }
     }
   },
   tasks: {
@@ -12301,7 +12405,7 @@ let workspaceData = {
       due: '2026-09-20',
       assignee: '张三',
       quantity: 5,
-      desc: '设计宇宙幻想主题的星空场景',
+      desc: '设计宇宙幻想主题的星空场景，包含星云、星球、光带等元素',
       createdAt: '2026-09-10T10:00:00',
       attachments: []
     },
@@ -12313,8 +12417,332 @@ let workspaceData = {
       due: '2026-09-25',
       assignee: '李四',
       quantity: 3,
-      desc: '制作太空飞船3D模型',
+      desc: '制作太空飞船3D模型，包含主舰和护卫舰两种类型',
       createdAt: '2026-09-11T08:30:00',
+      attachments: []
+    },
+    'task-cosmic-3': {
+      id: 'task-cosmic-3',
+      title: '宇宙音效设计',
+      status: 'doing',
+      priority: 'low',
+      due: '2026-09-30',
+      assignee: '王五',
+      quantity: 8,
+      desc: '为宇宙场景设计环境音效，包括太空风声、引擎声等',
+      createdAt: '2026-09-12T14:00:00',
+      attachments: []
+    },
+    'task-daily-1': {
+      id: 'task-daily-1',
+      title: '街道场景绘制',
+      status: 'todo',
+      priority: 'medium',
+      due: '2026-09-28',
+      assignee: '赵六',
+      quantity: 4,
+      desc: '绘制暮城主要街道的背景图，日景和夜景各一套',
+      createdAt: '2026-09-15T09:00:00',
+      attachments: []
+    },
+    'task-daily-2': {
+      id: 'task-daily-2',
+      title: 'NPC 对话脚本',
+      status: 'doing',
+      priority: 'high',
+      due: '2026-09-26',
+      assignee: '孙七',
+      quantity: 20,
+      desc: '编写日常 NPC 的对话脚本，覆盖 20 个主要角色',
+      createdAt: '2026-09-16T11:00:00',
+      attachments: []
+    },
+    'task-strange-1': {
+      id: 'task-strange-1',
+      title: '神秘事件剧情',
+      status: 'todo',
+      priority: 'high',
+      due: '2026-10-05',
+      assignee: '周八',
+      quantity: 6,
+      desc: '编写暮城异闻事件的主线剧情脚本',
+      createdAt: '2026-09-18T10:00:00',
+      attachments: []
+    },
+    'task-strange-2': {
+      id: 'task-strange-2',
+      title: '悬疑场景美术',
+      status: 'doing',
+      priority: 'medium',
+      due: '2026-10-08',
+      assignee: '吴九',
+      quantity: 3,
+      desc: '绘制悬疑氛围的场景原画，色调偏暗',
+      createdAt: '2026-09-19T13:30:00',
+      attachments: []
+    },
+    'task-strange-3': {
+      id: 'task-strange-3',
+      title: '推理谜题设计',
+      status: 'todo',
+      priority: 'low',
+      due: '2026-10-12',
+      assignee: '郑十',
+      quantity: 10,
+      desc: '设计 10 个推理谜题，难度递进',
+      createdAt: '2026-09-20T15:00:00',
+      attachments: []
+    },
+    'task-basic-1': {
+      id: 'task-basic-1',
+      title: '登录模块开发',
+      status: 'doing',
+      priority: 'high',
+      due: '2026-09-27',
+      assignee: '张三',
+      quantity: 1,
+      desc: '实现账号登录、注册、密码找回功能',
+      createdAt: '2026-09-12T09:00:00',
+      attachments: []
+    },
+    'task-basic-2': {
+      id: 'task-basic-2',
+      title: '数据存储优化',
+      status: 'todo',
+      priority: 'medium',
+      due: '2026-10-01',
+      assignee: '李四',
+      quantity: 2,
+      desc: '优化本地数据存储结构，提升读写性能',
+      createdAt: '2026-09-14T10:30:00',
+      attachments: []
+    },
+    'task-basic-3': {
+      id: 'task-basic-3',
+      title: '权限系统设计',
+      status: 'doing',
+      priority: 'high',
+      due: '2026-09-29',
+      assignee: '王五',
+      quantity: 3,
+      desc: '设计用户角色与权限管理系统',
+      createdAt: '2026-09-15T14:00:00',
+      attachments: []
+    },
+    'task-basic-4': {
+      id: 'task-basic-4',
+      title: '日志系统搭建',
+      status: 'todo',
+      priority: 'low',
+      due: '2026-10-03',
+      assignee: '赵六',
+      quantity: 1,
+      desc: '搭建前端日志收集与上报系统',
+      createdAt: '2026-09-17T11:00:00',
+      attachments: []
+    },
+    'task-char-1': {
+      id: 'task-char-1',
+      title: '主角立绘设计',
+      status: 'doing',
+      priority: 'high',
+      due: '2026-09-28',
+      assignee: '孙七',
+      quantity: 3,
+      desc: '设计主角的三套服装立绘，含表情差分',
+      createdAt: '2026-09-13T10:00:00',
+      attachments: []
+    },
+    'task-char-2': {
+      id: 'task-char-2',
+      title: '配角设定稿',
+      status: 'todo',
+      priority: 'medium',
+      due: '2026-10-02',
+      assignee: '周八',
+      quantity: 8,
+      desc: '完成 8 名主要配角的角色设定稿',
+      createdAt: '2026-09-15T09:30:00',
+      attachments: []
+    },
+    'task-char-3': {
+      id: 'task-char-3',
+      title: '角色 Spine 动画',
+      status: 'todo',
+      priority: 'high',
+      due: '2026-10-06',
+      assignee: '吴九',
+      quantity: 5,
+      desc: '为主要角色制作 Spine 骨骼动画，含待机、行走等动作',
+      createdAt: '2026-09-18T14:00:00',
+      attachments: []
+    },
+    'task-scene-1': {
+      id: 'task-scene-1',
+      title: '主城 3D 建模',
+      status: 'doing',
+      priority: 'high',
+      due: '2026-10-10',
+      assignee: '郑十',
+      quantity: 12,
+      desc: '完成主城主要建筑的 3D 建模，共 12 栋',
+      createdAt: '2026-09-14T10:00:00',
+      attachments: []
+    },
+    'task-scene-2': {
+      id: 'task-scene-2',
+      title: '场景光照烘焙',
+      status: 'todo',
+      priority: 'medium',
+      due: '2026-10-15',
+      assignee: '张三',
+      quantity: 5,
+      desc: '完成所有场景的光照贴图烘焙',
+      createdAt: '2026-09-16T11:30:00',
+      attachments: []
+    },
+    'task-ui-1': {
+      id: 'task-ui-1',
+      title: '主界面 UI 设计',
+      status: 'doing',
+      priority: 'high',
+      due: '2026-09-29',
+      assignee: '李四',
+      quantity: 1,
+      desc: '设计游戏主界面布局，含功能入口和信息展示区',
+      createdAt: '2026-09-15T09:00:00',
+      attachments: []
+    },
+    'task-ui-2': {
+      id: 'task-ui-2',
+      title: '背包系统界面',
+      status: 'todo',
+      priority: 'medium',
+      due: '2026-10-04',
+      assignee: '王五',
+      quantity: 3,
+      desc: '设计背包、装备、仓库三个界面',
+      createdAt: '2026-09-17T10:30:00',
+      attachments: []
+    },
+    'task-ui-3': {
+      id: 'task-ui-3',
+      title: '对话气泡 UI',
+      status: 'todo',
+      priority: 'low',
+      due: '2026-10-07',
+      assignee: '赵六',
+      quantity: 2,
+      desc: '设计 NPC 对话和玩家对话的气泡样式',
+      createdAt: '2026-09-19T14:00:00',
+      attachments: []
+    },
+    'task-anim-1': {
+      id: 'task-anim-1',
+      title: '技能特效制作',
+      status: 'doing',
+      priority: 'high',
+      due: '2026-10-08',
+      assignee: '孙七',
+      quantity: 15,
+      desc: '制作 15 个角色技能的粒子特效',
+      createdAt: '2026-09-16T10:00:00',
+      attachments: []
+    },
+    'task-anim-2': {
+      id: 'task-anim-2',
+      title: '过场动画分镜',
+      status: 'todo',
+      priority: 'medium',
+      due: '2026-10-12',
+      assignee: '周八',
+      quantity: 4,
+      desc: '完成 4 段过场动画的分镜脚本',
+      createdAt: '2026-09-18T11:30:00',
+      attachments: []
+    },
+    'task-audio-1': {
+      id: 'task-audio-1',
+      title: '主题曲创作',
+      status: 'doing',
+      priority: 'high',
+      due: '2026-09-30',
+      assignee: '吴九',
+      quantity: 1,
+      desc: '创作游戏主题曲，时长约 3 分钟',
+      createdAt: '2026-09-14T09:00:00',
+      attachments: []
+    },
+    'task-audio-2': {
+      id: 'task-audio-2',
+      title: '场景背景音乐',
+      status: 'todo',
+      priority: 'medium',
+      due: '2026-10-10',
+      assignee: '郑十',
+      quantity: 6,
+      desc: '为 6 个主要场景创作背景音乐',
+      createdAt: '2026-09-16T10:30:00',
+      attachments: []
+    },
+    'task-audio-3': {
+      id: 'task-audio-3',
+      title: 'UI 音效录制',
+      status: 'todo',
+      priority: 'low',
+      due: '2026-10-14',
+      assignee: '张三',
+      quantity: 20,
+      desc: '录制 20 个 UI 交互音效',
+      createdAt: '2026-09-20T14:00:00',
+      attachments: []
+    },
+    'task-qa-1': {
+      id: 'task-qa-1',
+      title: '功能测试用例',
+      status: 'todo',
+      priority: 'high',
+      due: '2026-10-15',
+      assignee: '李四',
+      quantity: 50,
+      desc: '编写 50 条核心功能测试用例',
+      createdAt: '2026-09-20T09:00:00',
+      attachments: []
+    },
+    'task-qa-2': {
+      id: 'task-qa-2',
+      title: '性能测试',
+      status: 'todo',
+      priority: 'high',
+      due: '2026-10-18',
+      assignee: '王五',
+      quantity: 5,
+      desc: '进行性能测试，确保帧率稳定在 60fps',
+      createdAt: '2026-09-21T10:30:00',
+      attachments: []
+    },
+    'task-qa-3': {
+      id: 'task-qa-3',
+      title: '兼容性测试',
+      status: 'doing',
+      priority: 'medium',
+      due: '2026-10-20',
+      assignee: '赵六',
+      quantity: 8,
+      desc: '测试 8 种主流设备的兼容性',
+      createdAt: '2026-09-22T14:00:00',
+      attachments: []
+    },
+    'task-qa-4': {
+      id: 'task-qa-4',
+      title: '验收报告撰写',
+      status: 'todo',
+      priority: 'low',
+      due: '2026-10-25',
+      assignee: '孙七',
+      quantity: 1,
+      desc: '汇总测试结果，撰写验收报告',
+      createdAt: '2026-09-23T11:00:00',
       attachments: []
     }
   },
@@ -12325,7 +12753,7 @@ let workspaceData = {
 let projectWorkspaceData = {};
 
 // Board list order (for sidebar rendering)
-const workspaceBoardIds = ['ws-cosmic', 'ws-daily', 'ws-strange', 'ws-basic', 'ws-template'];
+const workspaceBoardIds = ['ws-cosmic', 'ws-daily', 'ws-strange', 'ws-basic', 'ws-character', 'ws-scene', 'ws-ui', 'ws-animation', 'ws-audio', 'ws-qa'];
 
 // Helper: get current active board
 function getCurrentBoard() {
@@ -12547,12 +12975,11 @@ function _generateBoardTasks(boardId) {
 
 // Build full default workspace data with random tasks & attachments
 function _buildDefaultWorkspaceData() {
-  return {
-    boards: {},
-    tasks: {},
-    attachments: {}
-  };
+  return JSON.parse(JSON.stringify(workspaceData));
 }
+
+// Workspace data version - bump to force reset to default data
+const WORKSPACE_DATA_VERSION = 2;
 
 function loadWorkspaceDataForProject(projectId) {
   try {
@@ -12561,6 +12988,14 @@ function loadWorkspaceDataForProject(projectId) {
     if (stored) {
       const parsed = JSON.parse(stored);
       if (parsed.boards && parsed.tasks) {
+        // Check version - if outdated, reset to default data
+        if (!parsed._version || parsed._version < WORKSPACE_DATA_VERSION) {
+          const fresh = _buildDefaultWorkspaceData();
+          fresh._version = WORKSPACE_DATA_VERSION;
+          projectWorkspaceData[projectId] = fresh;
+          saveWorkspaceDataForProject(projectId);
+          return fresh;
+        }
         // Migrate: ensure all boards have canvas
         let needsSave = false;
         Object.values(parsed.boards).forEach(board => {
@@ -12575,14 +13010,16 @@ function loadWorkspaceDataForProject(projectId) {
         return parsed;
       }
     }
-    // No stored data: empty workspace (no default tasks/boards)
+    // No stored data: use default workspace data
     const data = _buildDefaultWorkspaceData();
+    data._version = WORKSPACE_DATA_VERSION;
     projectWorkspaceData[projectId] = data;
     saveWorkspaceDataForProject(projectId);
     return data;
   } catch (e) {
     console.error('Failed to load workspace data for project', projectId, e);
     const data = _buildDefaultWorkspaceData();
+    data._version = WORKSPACE_DATA_VERSION;
     projectWorkspaceData[projectId] = data;
     return data;
   }
